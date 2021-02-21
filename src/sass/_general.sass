@@ -1,0 +1,141 @@
+.main
+    height: 100vh
+    display: flex
+    width: 100%
+.menu
+    display: flex
+    flex-direction: column
+    width: 360px
+    background: #020059
+    padding: 14px 0 20px 0
+    color: #fff
+    height: 100vh
+    &__title
+        font-size: 20px
+        padding: 0 20px
+    &__list
+        padding: 0
+        margin-top: 10px
+    &__item
+        height: 85px
+        line-height: 80px
+        &:hover
+            background: #6059B6
+            cursor: pointer
+        &--active
+            background: #6059B6
+        svg
+            margin-left: 20px
+            width: 45px
+            height: 45px
+        span
+            font-size: 20px
+            margin-left: 10px
+.header
+    display: flex
+    justify-content: space-between
+    padding: 0 25px
+    height: 85px
+    width: 100%
+    align-items: center
+    border-bottom: 2px solid #020059
+    &__cath
+        font-size: 20px
+    &__profile
+        display: flex
+    &__name
+        font-size: 20px
+        text-align: right
+    &__group
+        color: #808080
+        font-size: 18px
+        text-align: right
+    &__icon
+        margin-left: 10px
+        img
+            width: 60px
+            height: 60px
+.content
+    width: 100%
+.shedule
+    display: flex
+    flex-direction: column
+    margin-top: 14px
+    padding: 20px 25px
+    &__nav
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__semester
+        font-size: 20px
+        span
+            font-size: 20px
+    &__download
+        display: flex
+        padding: 12px 20px 
+        border: 1px solid #BDBDBD
+        border-radius: 10px
+        cursor: pointer
+        color: #000
+        img
+            margin-right: 6px
+    &__table
+        margin-top: 20px
+        tr, td, th
+            border: 1px solid #000
+    &__time
+        font-size: 30px
+        width: 250px
+        height: 140px
+        align-items: center
+        text-align: center
+        vertical-align: middle
+        span
+            font-size: 26px
+            display: block
+    &__day
+        width: 250px
+        height: 35px
+        text-align: center
+    &__title
+        font-size: 24px
+    &__subtitle
+        font-size: 20px
+        text-align: center
+        height: 35px
+    &__text
+        text-align: center
+    &__subject
+        width: 250px
+        height: 140px
+        text-align: center
+        position: relative
+        padding: 0 16px
+        font-size: 16px
+        font-weight: 600
+        vertical-align: top
+        &--name
+            margin-top: 8px
+        &--teach
+            font-size: 12px
+            margin-top: 6px
+            font-weight: 400
+        &--nav
+            margin-top: 6px
+            display: flex
+            justify-content: space-between
+            width: 100%
+        &--room
+            font-size: 12px
+            padding: 2px 6px
+            border: 1px solid #BDBDBD
+            background: #5548e6
+            color: #fff
+            border-radius: 4px
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
+        &--type
+            font-size: 12px
+            border: 1px solid #BDBDBD
+            padding: 2px 6px
+            border-radius: 4px
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
