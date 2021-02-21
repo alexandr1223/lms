@@ -2,66 +2,72 @@
     height: 100vh
     display: flex
     width: 100%
+    background: url('../img/bg/first-bg.jpg') center center/cover no-repeat
 .menu
     display: flex
     flex-direction: column
-    width: 360px
+    width: 320px
     background: #020059
     padding: 14px 0 20px 0
     color: #fff
     height: 100vh
     &__title
-        font-size: 20px
+        font-size: 16px
         padding: 0 20px
     &__list
         padding: 0
         margin-top: 10px
     &__item
-        height: 85px
-        line-height: 80px
+        display: block
+        height: 70px
+        line-height: 70px
+        color: #fff 
         &:hover
             background: #6059B6
             cursor: pointer
+            color: #fff
         &--active
             background: #6059B6
         svg
             margin-left: 20px
-            width: 45px
-            height: 45px
+            width: 26px
+            height: 26px
         span
-            font-size: 20px
-            margin-left: 10px
+            font-size: 16px
+            margin-left: 5px
 .header
     display: flex
     justify-content: space-between
     padding: 0 25px
-    height: 85px
+    height: 65px
     width: 100%
     align-items: center
-    border-bottom: 2px solid #020059
+    background: #fff
     &__cath
-        font-size: 20px
+        font-size: 18px
     &__profile
         display: flex
     &__name
-        font-size: 20px
+        font-size: 18px
         text-align: right
     &__group
         color: #808080
-        font-size: 18px
+        font-size: 14px
         text-align: right
     &__icon
         margin-left: 10px
         img
-            width: 60px
-            height: 60px
+            width: 50px
+            height: 50px
 .content
     width: 100%
 .shedule
     display: flex
     flex-direction: column
-    margin-top: 14px
-    padding: 20px 25px
+    margin: 20px
+    padding: 10px 20px 20px 20px
+    background: #fff
+    height: auto
     &__nav
         display: flex
         justify-content: space-between
@@ -139,3 +145,82 @@
             padding: 2px 6px
             border-radius: 4px
             box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
+.journal
+    display: flex
+    flex-direction: column
+    margin-top: 14px
+    padding: 20px 25px
+    &__result
+        background: #5FB004
+        color: #fff
+    &__table
+        margin-top: 20px
+        height: 700px
+        overflow-y: scroll
+        tr, td, th
+            border: 1px solid #000
+    &__modul
+        background: #6059B6
+        color: #fff 
+    &__mark
+        text-align: center
+    &__time
+        font-size: 30px
+        width: 250px
+        height: 140px
+        align-items: center
+        text-align: center
+        vertical-align: middle
+        span
+            font-size: 26px
+            display: block
+    &__week
+        width: 76px
+        height: 35px
+        text-align: center
+    &__day
+        width: 38px
+        text-align: center
+    &__title
+        font-size: 24px
+    &__subtitle
+        font-size: 20px
+        text-align: center
+        height: 35px
+    &__text
+        text-align: center
+    &__f
+        width: 20px
+    &__subject
+        width: 200px
+        height: 70px
+        text-align: left
+        position: relative
+        padding: 0 16px
+        font-size: 16px
+        font-weight: 600
+        // &--name
+        //     margin-top: 8px
+        // &--teach
+        //     font-size: 12px
+        //     margin-top: 6px
+        //     font-weight: 400
+        // &--nav
+        //     margin-top: 6px
+        //     display: flex
+        //     justify-content: space-between
+        //     width: 100%
+        // &--room
+        //     font-size: 12px
+        //     padding: 2px 6px
+        //     border: 1px solid #BDBDBD
+        //     background: #5548e6
+        //     color: #fff
+        //     border-radius: 4px
+        //     box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
+        // &--type
+        //     font-size: 12px
+        //     border: 1px solid #BDBDBD
+        //     padding: 2px 6px
+        //     border-radius: 4px
+        //     box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
