@@ -199,28 +199,77 @@
         padding: 0 16px
         font-size: 16px
         font-weight: 600
-        // &--name
-        //     margin-top: 8px
-        // &--teach
-        //     font-size: 12px
-        //     margin-top: 6px
-        //     font-weight: 400
-        // &--nav
-        //     margin-top: 6px
-        //     display: flex
-        //     justify-content: space-between
-        //     width: 100%
-        // &--room
-        //     font-size: 12px
-        //     padding: 2px 6px
-        //     border: 1px solid #BDBDBD
-        //     background: #5548e6
-        //     color: #fff
-        //     border-radius: 4px
-        //     box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
-        // &--type
-        //     font-size: 12px
-        //     border: 1px solid #BDBDBD
-        //     padding: 2px 6px
-        //     border-radius: 4px
-        //     box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
+
+.settings
+    background: #fff
+    margin: 20px
+    padding: 20px 25px
+    &__title
+        font-weight: 600
+        font-size: 18px
+    &__block
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 40px 40px
+        margin-top: 20px
+        margin-bottom: 40px
+    &__item
+        width: 100%
+        &--title
+            border-bottom: 1px dashed rgba(0,0,0,.5)
+            width: 100%
+            margin-bottom: 20px
+            padding-bottom: 6px
+    &__save
+        width: 100%
+        border-top: 1px solid rgba(0,0,0,.5)
+        padding-top: 20px
+    &__btn
+        display: flex
+        align-items: center
+        margin-left: auto
+        border: 1px solid #5548e6
+        background: #5548e6
+        padding: 6px 20px
+        font-size: 16px
+        color: #fff
+        transition: .3s 
+        box-shadow: 2px 2px 10px 1px rgba(85, 72, 230, .6)
+        &:hover
+            transform: translateY(-3px)
+        svg
+            margin-right: 6px
+            path
+                fill: #fff
+    .change
+        display: grid
+        grid-template-columns: 1fr
+        grid-gap: 8px 0
+        &__photo
+            width: 180px
+            height: 180px
+            border-radius: 50%
+            object-fit: cover
+            margin-bottom: 10px
+        &__item
+            display: flex
+            justify-content: space-between
+            align-items: center
+            label
+                font-weight: 600
+                font-size: 14px
+            input
+                width: 300px
+                background: 
+                padding: 6px 12px
+                font-size: 14px
+                
+                border: 1px solid rgba(0, 0, 0, .2)
+                &:read-only
+                    background-color: #eee
+        &__text
+            font-size: 14px
+        &__select
+            option
+                padding: 4px 10px
+    
