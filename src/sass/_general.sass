@@ -68,14 +68,33 @@
     padding: 10px 20px 20px 20px
     background: #fff
     height: auto
+    &__item
+        display: flex
+        align-items: center
+        &--discipline
+            margin-left: 40px
+            display: flex
+            align-items: center
+            span
+                margin-right: 6px
+                font-size: 18px
+        &--semester
+            font-size: 18px
+            span
+                font-size: 20px
+        &--group
+            margin-left: 40px
+            font-size: 18px
+            display: flex
+            align-items: center
+            span
+                margin-right: 6px
+                font-size: 18px
     &__nav
         display: flex
         justify-content: space-between
         align-items: center
-    &__semester
-        font-size: 20px
-        span
-            font-size: 20px
+    
     &__download
         display: flex
         padding: 12px 20px 
@@ -199,6 +218,8 @@
         padding: 0 16px
         font-size: 16px
         font-weight: 600
+        &--teacher
+            height: 35px
 
 .settings
     background: #fff
@@ -245,12 +266,42 @@
         display: grid
         grid-template-columns: 1fr
         grid-gap: 8px 0
+        &__image
+            
+            position: relative
         &__photo
             width: 180px
             height: 180px
             border-radius: 50%
             object-fit: cover
             margin-bottom: 10px
+        &__delete
+            position: absolute
+            cursor: pointer
+            width: 30px 
+            height: 30px
+            top: 0
+            right: 15px
+            background: #dc3545
+            padding: 7px
+            border-radius: 20%
+            path
+                border-radius: 20%
+                fill: #fff
+        &__edit
+            position: absolute
+            cursor: pointer
+            width: 30px 
+            height: 30px
+            bottom: 10px
+            right: 15px
+            background: #fff
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .4)
+            padding: 7px
+            border-radius: 20%
+            path
+                border-radius: 20%
+                fill: #000
         &__item
             display: flex
             justify-content: space-between
@@ -272,4 +323,49 @@
         &__select
             option
                 padding: 4px 10px
-    
+.group
+    &__table
+        margin-top: 20px
+        height: 700px
+        overflow-y: scroll
+        tr, td, th
+            border: 1px solid #000 
+    &__mark
+        text-align: center
+    &__time
+        font-size: 30px
+        width: 250px
+        height: 140px
+        align-items: center
+        text-align: center
+        vertical-align: middle
+        span
+            font-size: 26px
+            display: block
+    &__week
+        width: 76px
+        height: 35px
+        text-align: center
+    &__day
+        width: 38px
+        text-align: center
+    &__title
+        font-size: 18px
+        width: 500px
+    &__subtitle
+        padding: 0 10px
+        font-size: 14px
+        text-align: center
+        height: 35px
+    &__text
+        text-align: center
+    &__f
+        width: 20px
+    &__subject
+        width: 200px
+        height: 70px
+        text-align: left
+        position: relative
+        padding: 0 16px
+        font-size: 16px
+        font-weight: 600
