@@ -1,6 +1,62 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    
+    function Captcha() {
+        document.querySelector(".register__btn").addEventListener('click', (e) =>  {
+            e.preventDefault();
+            document.querySelector('.captcha').style.cssText = "display: block"
+        })
+        let code;
+        function createCaptcha() {
+            //clear the contents of captcha div first 
+            document.getElementById('captcha').innerHTML = "";
+            let charsArray =
+            "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+            const capthcaLength = 6;
+            let captcha = [];
+            for (let i = 0; i < capthcaLength; i++) {
+                let index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+                if (captcha.indexOf(charsArray[index]) == -1) {
+                    captcha.push(charsArray[index]);
+                } else{
+                    i--;
+                }
+            }
+            let canvas = document.createElement("canvas");
+            canvas.id = "captcha";
+            canvas.width = 130;
+            canvas.height = 40;
+            let context = canvas.getContext("2d");
+            context.font = "30px Georgia";
+            context.textAlign = "start";
+            context.strokeText(captcha.join(""), 0, 30);
+            var beginRandX = Math.floor(Math.random() * canvas.width);
+            var beginRandY = Math.floor(Math.random() * canvas.height);
+            var endRandX = Math.floor(Math.random() * canvas.width);
+            var endRandY = Math.floor(Math.random() * canvas.height);
+
+            context.beginPath();
+            context.moveTo(beginRandX, beginRandY);
+            context.lineTo(endRandX, endRandY);
+            context.closePath();
+            context.stroke();
+            //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+            code = captcha.join("");
+            document.getElementById("captcha").appendChild(canvas); // adds the canvas to the body element
+        }
+        document.querySelector('body').onload = createCaptcha();
+        document.querySelector('.captcha__btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (document.querySelector(".captcha__text").value == code) {
+                alert("Valid Captcha")
+            }else{
+                alert("Invalid Captcha. try Again");
+                document.querySelector(".captcha__text").value = '';
+                createCaptcha();
+            }
+        })
+    }
+    Captcha();
+
 (function ($) {
     "use strict";
 
