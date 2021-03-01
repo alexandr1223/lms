@@ -1,10 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     function Captcha() {
-        document.querySelector(".register__btn").addEventListener('click', (e) =>  {
-            e.preventDefault();
-            document.querySelector('.captcha').style.cssText = "display: block"
-        })
+        // document.querySelector(".register__btn").addEventListener('click', (e) =>  {
+        //     e.preventDefault();
+        //     document.querySelector('.captcha').style.cssText = "display: block"
+        // })
         let code;
         function createCaptcha() {
             //clear the contents of captcha div first 
@@ -44,12 +44,17 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById("captcha").appendChild(canvas); // adds the canvas to the body element
         }
         document.querySelector('body').onload = createCaptcha();
+        document.querySelector('.captcha__item input').addEventListener('input', function() {
+            document.querySelector(".captcha__alert").style.cssText = "display: none";
+            this.style.cssText = "border: 1px solid #c0c0c0"
+        })
         document.querySelector('.captcha__btn').addEventListener('click', function(event) {
             event.preventDefault();
             if (document.querySelector(".captcha__text").value == code) {
-                alert("Valid Captcha")
+                document.querySelector(".register__btn").removeAttribute("disabled")
             }else{
-                alert("Invalid Captcha. try Again");
+                document.querySelector(".captcha__alert").style.cssText = "display: block"
+                document.querySelector(".captcha__item input").style.cssText = "border: 1px solid red"
                 document.querySelector(".captcha__text").value = '';
                 createCaptcha();
             }
