@@ -7,14 +7,13 @@ window.addEventListener('DOMContentLoaded', () => {
         // })
         let code;
         function createCaptcha() {
-            //clear the contents of captcha div first 
             document.getElementById('captcha').innerHTML = "";
             let charsArray =
             "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
             const capthcaLength = 6;
             let captcha = [];
             for (let i = 0; i < capthcaLength; i++) {
-                let index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+                let index = Math.floor(Math.random() * charsArray.length + 1); 
                 if (captcha.indexOf(charsArray[index]) == -1) {
                     captcha.push(charsArray[index]);
                 } else{
@@ -33,15 +32,13 @@ window.addEventListener('DOMContentLoaded', () => {
             var beginRandY = Math.floor(Math.random() * canvas.height);
             var endRandX = Math.floor(Math.random() * canvas.width);
             var endRandY = Math.floor(Math.random() * canvas.height);
-
             context.beginPath();
             context.moveTo(beginRandX, beginRandY);
             context.lineTo(endRandX, endRandY);
             context.closePath();
             context.stroke();
-            //storing captcha so that can validate you can save it somewhere else according to your specific requirements
             code = captcha.join("");
-            document.getElementById("captcha").appendChild(canvas); // adds the canvas to the body element
+            document.getElementById("captcha").appendChild(canvas); 
         }
         document.querySelector('body').onload = createCaptcha();
         document.querySelector('.captcha__item input').addEventListener('input', function() {
@@ -60,7 +57,74 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
     }
-    Captcha();
+    // Captcha();
+
+    function CaptchaImage() {
+        let square = document.querySelector('.cap__square'),
+            pzl = document.querySelector('.cap__include');
+        function validation() {
+            square.style.position = 'absolute';
+            square.style.zIndex = '1000';
+            let block = document.querySelector('.cap')
+           
+            function moveAt(pageX, pageY) {
+                
+                document.querySelector('.cap__arrow').style.cssText = "display: block"
+                document.querySelector('.cap__check').style.cssText = "display: none"
+                document.querySelector('.cap__no').style.cssText = "display: none"
+                let squarePos = pageX - block.getBoundingClientRect().left - square.clientWidth / 2,
+                pazl = document.querySelector('.cap__include');
+                if (squarePos > -1 && squarePos < 354) {
+                    pazl.style.left = pageX - block.getBoundingClientRect().left - square.clientWidth / 2  + 'px';
+                    square.style.left = pageX - block.getBoundingClientRect().left - square.clientWidth / 2  + 'px';
+                    square.style.top = 311 + 'px';
+                } else {
+                    square.onmouseup = function() {
+                        document.removeEventListener('mousemove', onMouseMove);
+                        square.onmouseup = null;
+                    };
+                }
+                if (squarePos > 5) {
+                    document.querySelector('.cap__text').style.cssText = "opacity: 0"
+                } else {
+                    document.querySelector('.cap__text').style.cssText = "opacity: 1"
+                }
+                square.style.background = "#707ad6";
+            }
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY)
+            }
+            
+              // (3) перемещать по экрану
+            document.addEventListener('mousemove', onMouseMove);
+              // (4) положить мяч, удалить более ненужные обработчики событий
+            document.body.onmouseup = function() {
+                document.removeEventListener('mousemove', onMouseMove);
+                
+                let squarePos = square.getBoundingClientRect().left - block.getBoundingClientRect().left
+                console.log(squarePos)
+                if (squarePos > 151 && squarePos < 163) {
+                    square.style.background = "#57b846";
+                    document.querySelector('.cap__arrow').style.cssText = "display: none"
+                    document.querySelector('.cap__check').style.cssText = "display: block"
+                } else {
+                    square.style.background = "#e53030";
+                    document.querySelector('.cap__arrow').style.cssText = "display: none"
+                    document.querySelector('.cap__no').style.cssText = "display: block"
+                }
+            };
+            
+        }
+        square.onmousedown = validation;
+        pzl.onmousedown = validation;
+        square.ondragstart = function() {
+            return false;
+        }
+        pzl.ondragstart = function() {
+            return false;
+        }
+    }
+    CaptchaImage();
 
 (function ($) {
     "use strict";

@@ -675,8 +675,8 @@
 .captcha
     &__block
         width: 100%
-        margin-top: 20px
-        height: 100px
+        margin-top: 10px
+        height: 90px
     &__title
         font-size: 16px 
         text-align: center
@@ -728,3 +728,48 @@
             fill: #fff
         &:hover
             box-shadow: 1px 1px 2px 1px rgba(87, 184, 70, .4)
+.cap
+    width: 400px
+    height: 360px
+    background: #fff
+    margin: 0 auto
+    position: relative
+    &__img
+        width: 400px 
+        height: 300px
+        object-fit: cover
+        user-select: none
+    &__block
+        margin-top: 10px
+        border: 1px solid rgb(214, 214, 214)
+        background-color: rgb(238, 238, 238)
+        height: 52px
+    &__include
+        position: absolute
+        top: 74px
+        cursor: grab
+    &__square
+        width: 50px 
+        height: 50px
+        background: #707ad6
+        cursor: grab
+        padding: 12px 13px 
+        user-select: none
+        svg
+            width: 27px 
+            height: 27px
+            fill: #fff
+    &__text
+        width: 100%
+        position: absolute
+        left: 60px
+        line-height: 50px   
+        font-size: 14px
+        opacity: 1
+        transition: .4s
+    &__arrow
+        display: block
+    &__check
+        display: none
+    &__no
+        display: none
