@@ -1,5 +1,26 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+   
+    import CIP from 'canvas_image_processing'
+    function action(event) {
+        if (event.target.files[0]) {
+            const file = document.querySelector('.cap__img');
+            const reader = new FileReader();
+            reader.onload = function(e) {
+            let base64_image = e.target.result;
+        
+            CIP.cropImage64(base64_image, 0, 0, 200, 200).then(cropped_image => {
+                console.log('cropped base64 image: ', cropped_image);
+            });
+        
+            CIP.resizeImage64(base64_image, 600, 600).then(cropped_image => {
+                console.log('resized base64 image: ', cropped_image);
+            });
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
     function Captcha() {
         // document.querySelector(".register__btn").addEventListener('click', (e) =>  {
         //     e.preventDefault();
@@ -58,14 +79,53 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
     // Captcha();
+    // window.onload = function() {
+		
+	// 	html2canvas(document.querySelector('.cap__white')).then(function(canvas) {
+
+	// 		var my_screen = canvas;
+    //         document.querySelector(".cap").appendChild(my_screen)
+	// 	});	
+	
+	// }
 
     function CaptchaImage() {
         let square = document.querySelector('.cap__square'),
-            pzl = document.querySelector('.cap__include');
+            pzl = document.querySelector('.cap__include'),
+            num = Math.floor(Math.random() * 2)
+            image = document.querySelector('.cap__img'),
+            pazlBlur = document.querySelector('.cap__white'),
+            coordTop = 0,
+            coordLeft = 0,
+            pazl = document.querySelector('.cap__include');
+            
+
+        switch(num){
+            case 0:
+                image.src = '/img/lion.jpg';
+                pazlBlur.style.cssText = "top: 72px; left: 151px";
+                pazl.style.cssText = "top: 72px;";
+                pazl.src = "/img/lion-pazl0.png"
+                сoordTop = 72;
+                coordLeft = 151;
+                break;
+            case 1:
+                image.src = '/img/lion.jpg';
+                pazlBlur.style.cssText = "top: 131px; left: 87px";
+                pazl.style.cssText = "top: 131px";
+                pazl.src = "/img/lion-pazl1.png"
+                сoordTop = 131;
+                coordLeft = 87;
+                break;
+        }
+
         function validation() {
+            
             square.style.position = 'absolute';
             square.style.zIndex = '1000';
             let block = document.querySelector('.cap')
+
+            
            
             function moveAt(pageX, pageY) {
                 
@@ -103,7 +163,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 
                 let squarePos = square.getBoundingClientRect().left - block.getBoundingClientRect().left
                 console.log(squarePos)
-                if (squarePos > 151 && squarePos < 163) {
+                if (squarePos > coordLeft - 6 && squarePos < coordLeft + 6) {
                     square.style.background = "#57b846";
                     document.querySelector('.cap__arrow').style.cssText = "display: none"
                     document.querySelector('.cap__check').style.cssText = "display: block"
@@ -125,6 +185,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
     CaptchaImage();
+
+    
 
 (function ($) {
     "use strict";

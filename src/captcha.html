@@ -21,8 +21,10 @@
                         Регистрация
                     </div>
                     <div class="cap">
-                        <img src="img/lion-pazl2.png" class="cap__include" alt="">
-                        <img class="cap__img" src="img/lion1.jpg" alt="">
+                        <img src="img/1.png" alt="" class="cap__white1 lion__first">
+                        <img src="img/lion-pazl5.png" alt="" class="cap__white lion__first">
+                        <img src="img/lion-pazl7.png" class="cap__include" alt="">
+                        <img class="cap__img" src="" alt="">
                         <div class="cap__block">
                             <div class="cap__text">
                                 Потяните ползунок вправо
@@ -39,9 +41,21 @@
             </div>             
        </section>
 
+       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="js/maskinput.js"></script>
+        <script src="js/html2canvas.js"></script>
         <script src="js/script.js"></script>
+
+        window.onload = function() {
+		
+		html2canvas(document.getElementById("content")).then(function(canvas) {
+
+			var my_screen = canvas;
+
+		});	
+	
+
     </body>
 
 </html>

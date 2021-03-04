@@ -22,5 +22,7 @@
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "canvas_image_processing": "0.0.5"
+  }
 }
